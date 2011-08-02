@@ -118,14 +118,14 @@ public class HMM implements Serializable {
 
 			if (deltaTypical3 > deltaATypical3) {
 				System.out.println("Gen Typical");
-				// if (pgen.getSequence().length() > 1500) {
-				// dna.getPredictionGenes().remove(indx);
-				// }
+				if (pgen.getSequence().length() > 1500) {
+					dna.getPredictionGenes().remove(indx);
+				}
 			} else {
 				System.out.println("Gen ATypical");
-				// if (pgen.getSequence().length() < 1500) {
-				// dna.getPredictionGenes().remove(indx);
-				// }
+				if (pgen.getSequence().length() < 1500) {
+					dna.getPredictionGenes().remove(indx);
+				}
 			}
 		}
 
