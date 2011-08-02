@@ -127,6 +127,7 @@ public class HMM implements Serializable {
 					dna.getPredictionGenes().remove(indx);
 				}
 			}
+			indx++;
 		}
 
 	}
