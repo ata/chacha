@@ -1,6 +1,5 @@
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class HMM implements Serializable {
@@ -74,9 +73,9 @@ public class HMM implements Serializable {
 		double deltaATypical1, deltaATypical2, deltaATypical3;
 		int indx = 0;
 
-		List<Gen> pgenes = new ArrayList<Gen>();
-		Collections.copy(pgenes, dna.getPredictionGenes());
-		for (Gen pgen : dna.getPredictionGenes()) {
+		ArrayList<Gen> pgenes = (ArrayList<Gen>) dna.getPredictionGenes()
+				.clone();
+		for (Gen pgen : pgenes) {
 			deltaTypical1 = deltaTypical2 = deltaTypical3 = 1;
 			deltaATypical1 = deltaATypical2 = deltaATypical3 = 1;
 

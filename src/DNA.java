@@ -13,7 +13,7 @@ public class DNA {
 	private String filename;
 	private String genFilename;
 	private List<Gen> genes = new ArrayList<Gen>();
-	private final List<Gen> predictionGenes = new ArrayList<Gen>();
+	private final ArrayList<Gen> predictionGenes = new ArrayList<Gen>();
 
 	public DNA(String filename, String genFilename) {
 		this.filename = filename;
@@ -104,6 +104,7 @@ public class DNA {
 				String[] str = line.split("-", 2);
 				int startCodonIndex = Integer.parseInt(str[0]);
 				int stopCodonIndex = Integer.parseInt(str[1]);
+
 				if (stopCodonIndex > startCodonIndex) {
 
 					Integer[] startCodon = { new Integer(startCodonIndex),
@@ -135,11 +136,12 @@ public class DNA {
 							new Integer(stopCodonIndex - 1),
 							new Integer(stopCodonIndex) };
 					gen.setStopCodon(stopCodon);
-					sequence = sequence.replaceAll("a", "p").replaceAll("t",
-							"q").replaceAll("g", "r").replaceAll("c", "s")
-							.replaceAll("p", "t").replaceAll("q", "a")
-							.replaceAll("r", "c").replaceAll("s", "g");
-					gen.setSequence(sequence.substring(stopCodonIndex,
+					String sequenceCopy = sequence.replaceAll("a", "p")
+							.replaceAll("t", "q").replaceAll("g", "r")
+							.replaceAll("c", "s").replaceAll("p", "t")
+							.replaceAll("q", "a").replaceAll("r", "c")
+							.replaceAll("s", "g");
+					gen.setSequence(sequenceCopy.substring(stopCodonIndex,
 							startCodonIndex));
 
 				}
@@ -157,7 +159,7 @@ public class DNA {
 		return genes;
 	}
 
-	public List<Gen> getPredictionGenes() {
+	public ArrayList<Gen> getPredictionGenes() {
 		// cari startcodon
 		StringBuilder sb = null;
 		for (int i = 0; i < sequenceArray.length; i++) {
@@ -192,7 +194,8 @@ public class DNA {
 							}
 							gen.setSequence(sequence.substring(i, j + 1));
 							predictionGenes.add(gen);
-
+							i = j;
+							break;
 						}
 					}
 
