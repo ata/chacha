@@ -117,17 +117,25 @@ public class HMM implements Serializable {
 					* stopCodons.get(2).get(pgen.getBasaStopCodon()[2]);
 
 			if (deltaTypical3 > deltaATypical3) {
-				System.out.println("Gen Typical");
+				//System.out.println("Gen Typical");
 				if (pgen.getSequence().length() > 1500) {
 					dna.getPredictionGenes().remove(indx);
 				}
 			} else {
-				System.out.println("Gen ATypical");
+				//System.out.println("Gen ATypical");
 				if (pgen.getSequence().length() < 1500) {
 					dna.getPredictionGenes().remove(indx);
 				}
 			}
 			indx++;
+		}
+		// Hapus comment di bawah ini setelah ok
+		for(Gen pgen: dna.getPredictionGenes()){
+			System.out.println("Start Codon: " + pgen.getStartCodonString());
+			System.out.println("Basa Start Codon: " + pgen.getBasaStartCodonString());
+			System.out.println("Stop Codon: " + pgen.getStopCodonString());
+			System.out.println("Basa Stop Codon: " + pgen.getBasaStopCodonString());
+			System.out.println();
 		}
 
 	}

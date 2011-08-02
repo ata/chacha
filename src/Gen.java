@@ -126,7 +126,6 @@ public class Gen {
 
 	public char[] getBasaStartCodon() {
 		if (basaStartCodon == null) {
-			System.out.println(sequence);
 			basaStartCodon = sequence.substring(0, 3).toCharArray();
 		}
 		return basaStartCodon;
@@ -299,5 +298,39 @@ public class Gen {
 		sumState = alphaATypical3.get(state) * betaATypical3.get(state);
 		// System.out.println("sumState" + sumState);
 		return sumState;
+	}
+	
+	public String getStartCodonString(){
+		StringBuilder sb = new StringBuilder();
+		for(Integer i: startCodon){
+			sb.append(i);
+			sb.append(",");
+		}
+		return sb.toString(); 
+	}
+	
+	public String getStopCodonString(){
+		StringBuilder sb = new StringBuilder();
+		for(Integer i: stopCodon){
+			sb.append(i);
+			sb.append(",");
+		}
+		return sb.toString(); 
+	}
+	
+	public String getBasaStartCodonString(){
+		StringBuilder sb = new StringBuilder();
+		for(char c: getBasaStartCodon()){
+			sb.append(c);
+		}
+		return sb.toString(); 
+	}
+	
+	public String getBasaStopCodonString(){
+		StringBuilder sb = new StringBuilder();
+		for(char c: getBasaStopCodon()){
+			sb.append(c);
+		}
+		return sb.toString(); 
 	}
 }
