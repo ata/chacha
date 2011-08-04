@@ -131,9 +131,9 @@ public class HMM implements Serializable {
 		}
 		// Hapus comment di bawah ini setelah ok
 		for(Gen pgen: dna.getPredictionGenes()){
-			System.out.println("Start Codon: " + pgen.getStartCodonString());
+			System.out.println("Start Codon Index: " + pgen.getStartCodonString());
 			System.out.println("Basa Start Codon: " + pgen.getBasaStartCodonString());
-			System.out.println("Stop Codon: " + pgen.getStopCodonString());
+			System.out.println("Stop Codon Index: " + pgen.getStopCodonString());
 			System.out.println("Basa Stop Codon: " + pgen.getBasaStopCodonString());
 			System.out.println();
 		}
